@@ -1,0 +1,464 @@
+:root {
+    --fuentePrincipal: 'Roboto', sans-serif;
+    --fuenteSecundaria: 'Lato', sans-serif;
+    --separacion: 5rem;
+
+    --primario: #1073ba;
+    --secundario: #00da55;
+    --gris: #383b3b;
+    --blanco: #fff;
+    --negro: #1f1e1e;
+    --grisClaro: #e1e1e1;
+
+
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+/*Snippet ideal*/
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+/*Globales (siempre comenzar por esto y organizarlos todo antes de 
+comenzar con el html)*/
+/*Ideal para acomodar mi contenido y centrarlo en mi sitio*/
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 900;
+    font-family: var(--fuenteSecundaria);
+    margin: calc(var(--separacion) / 2) 0;
+}
+
+h1 {
+    font-size: 4.4rem;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+img {
+    /*De esta manera haremos que la imagen se adapte , 
+    mas proporcional*/
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+/*Utilidades (utilizar siempre en lugares)*/
+
+.text-center {
+    text-align: center;
+}
+
+/*Degradado*/
+.degradado {
+    color: transparent;
+    background: linear-gradient(to right, var(--primario) 0%, var(--secundario) 100%);
+    -webkit-background-clip: text;
+    /*requiere para varios navegadores*/
+    background-clip: text;
+
+}
+
+/*Header ---------------*/
+.header {
+    background-color: var(--negro);
+    padding: calc(var(--separacion) * 3) 0;
+    color: var(--blanco);
+}
+
+/*Dispositivo grande*/
+@media (min-width: 768px) {
+    .contenido-header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.texto-header {
+    text-align: center;
+    padding-top: var(--separacion);
+}
+
+@media (min-width:768px) {
+    .texto-header {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 0;
+    }
+}
+
+.texto-header p {
+    margin: 0;
+}
+
+.tagline-producto {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.nombre-producto {
+    font-size: 6rem;
+    margin: 0;
+}
+
+@media (min-width:768px) {
+    .nombre-producto {
+        font-size: 10rem;
+        line-height: 1;
+    }
+}
+
+.precio-producto span {
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+/*Informacion producto*/
+.iconos {
+    padding: var(--separacion);
+}
+
+@media (min-width:768px) {
+    .iconos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5rem;
+    }
+}
+
+.icono {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*Horizontalmente*/
+    margin-bottom: calc(var(--separacion)/2);
+}
+
+.icono:last-of-type {
+    margin: 0;
+}
+
+@media (min-width:768px) {
+    .icono {
+        margin: 0;
+    }
+}
+
+.icono img {
+    width: 5rem;
+}
+
+.icono h3 {
+    color: var(--primario);
+    text-transform: uppercase;
+    margin-top: calc(var(--separacion)/2);
+}
+
+/*Sobre techPRO*/
+
+.sobre-tech {
+    /*Ubicacion imagen , transparencia desde abajo a arriba y arriba 
+    en cero , pongo la imagen*/
+    background-repeat: repeat, no-repeat;
+    background-position: right;
+    background-size: 100%, 120rem;
+    /*primer valor el color , segundo la 
+    imagen*/
+}
+/*Con esto mejoraremos la performance de nuestra pagina*/
+.notavif.notwebp .sobre-tech {
+    background-image: linear-gradient( to bottom, transparent 50%, var(--primario) 0% ), url(../img/imagen-mujer.jpg);
+}
+.webp .sobre-tech {
+    background-image: linear-gradient( to bottom, transparent 50%, var(--primario) 0% ), url(../img/imagen-mujer.webp);
+}
+.avif .sobre-tech {
+    background-image: linear-gradient( to bottom, transparent 50%, var(--primario) 0% ), url(../img/imagen-mujer.avif);
+}
+@media (min-width: 768px) { 
+    .sobre-tech {
+        background-repeat: repeat, no-repeat;
+    }
+    .notavif.notwebp .sobre-tech {
+        background-image: linear-gradient( to left, transparent 50%, var(--primario) 0% ), url(../img/imagen-mujer.jpg);
+    }
+    .webp .sobre-tech {
+        background-image: linear-gradient( to left, transparent 50%, var(--primario) 0% ), url(../img/imagen-mujer.webp);
+    }
+    .avif .sobre-tech {
+        background-image: linear-gradient( to left, transparent 50%, var(--primario) 0% ), url(../img/imagen-mujer.avif);
+    }
+}
+
+@media (min-width: 1600px) {
+    .sobre-tech {
+        background-size: 100%, 210rem;
+    }
+}
+
+.sobre-tech-grid {
+    display: grid;
+    grid-template-rows: repeat(2, 40rem);
+    row-gap: var(--separacion);
+}
+
+@media (min-width:768px) {
+    .sobre-tech-grid {
+        grid-template-rows: unset;
+        /*Con esto elimino las filas*/
+        row-gap: unset;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 4rem;
+        padding: calc(var(--separacion) * 2) 0;
+    }
+}
+
+.texto-sobre-tech {
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    color: var(--blanco);
+    padding-bottom: var(--separacion);
+}
+
+@media (min-width:768px) {
+    .texto-sobre-tech {
+        padding-bottom: 0;
+    }
+}
+
+.texto-sobre-tech h2 {
+    font-size: 4rem;
+}
+
+.texto-sobre-tech p {
+    font-size: 2rem;
+    line-height: 2;
+}
+
+/*Elige*/
+.modelo {
+    padding: var(--separacion) 0;
+}
+
+.header-modelos {
+    font-size: 6rem;
+    margin-bottom: var(--separacion);
+}
+
+.listado-modelos {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    padding-bottom: var(--separacion);
+}
+
+@media (min-width:992px) {
+    .listado-modelos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 20rem);
+        gap: 4rem;
+
+    }
+
+}
+
+.modelo {
+    background-color: var(--grisClaro);
+    margin-bottom: 2rem;
+    padding-left: 4rem;
+    color: var(--primario);
+    border-radius: 2rem;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: 90% center;
+    /*Moder los elementos */
+    background-size: 15rem;
+    /*Mejor aplicar transiciones de esta manera*/
+    transition-property: transform background-size;
+    transition-duration: .3s;
+}
+
+@media (min-width:992px) {
+    .modelo {
+        margin-bottom: 0;
+    }
+}
+
+.modelo:first-of-type {
+    /*El primer elemento*/
+    margin-bottom: 0;
+}
+
+/*Modelos*/
+.modelo-y {
+    background-image: url(../img/modelo-y.svg);
+}
+
+.modelo-x {
+    background-image: url(../img/modelo-x.svg);
+}
+
+.modelo-z {
+    background-image: url(../img/modelo-z.svg);
+    color: var(--blanco);
+    background-color: var(--primario);
+}
+
+.modelo-z .precio {
+    font-size: 5rem;
+}
+
+.modelo:hover {
+    background-size: 30rem;
+    transform: scale(1.1);
+    /*de 1 para abajo reduce su tamaño*/
+}
+
+@media (min-width:992px) {
+    .modelo-z {
+        grid-column: 2/3;
+        grid-row: 1/3;
+        background-size: 25rem;
+    }
+
+    .modelo-z h3 {
+        font-size: 4rem;
+    }
+}
+
+.modelo-x h3,
+.modelo-y h3 {
+    font-size: 2.4rem;
+}
+
+.modelo .precio {
+    line-height: 0;
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+/*Newsletter*/
+
+.newsletter {
+    /*De arriba hacia abajo*/
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% , 70rem;
+}
+/*Si no acepta avif*/
+.notavif .notwebp .newsletter{
+    background-image: linear-gradient(to bottom, transparent 50%, var(--blanco) 0%), url(../img/newsletter.jpg);
+}
+
+.webp .newsletter{
+    background-image: linear-gradient(to bottom, transparent 50%, var(--blanco) 0%), url(../img/newsletter.webp);
+}
+
+.avif .newsletter{
+        background-image: linear-gradient(to bottom, transparent 50%, var(--blanco) 0%), url(../img/newsletter.avif);
+}
+
+@media (min-width:768px) {
+    .newsletter {
+        /*De arriba hacia abajo*/
+        background-position: center , -21rem 0rem; /*Jugar con esto para acomdar mi imagen*/
+        background-size: 100% , 100rem;
+        padding: 10rem 0 ;
+    }
+
+    .notavif.notwebp .newsletter {
+        background-image: linear-gradient( to right, transparent 50%, var(--blanco) 0% ), url(../img/newsletter.jpg) ;
+    }
+    
+    .webp .newsletter {
+        background-image: linear-gradient( to right, transparent 50%, var(--blanco) 0% ), url(../img/newsletter.webp) ;
+    }
+    
+    .avif .newsletter {
+        background-image: linear-gradient( to right, transparent 50%, var(--blanco) 0% ), url(../img/newsletter.avif) ;
+    }
+}
+
+.contenido-newsletter {
+    display: grid;
+    grid-template-rows: repeat(2, 30rem);
+    gap: var(--separacion);
+}
+
+@media (min-width:768px) {
+    .contenido-newsletter {
+        grid-template-rows: unset;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.texto-newsletter {
+    grid-row: 2/3;
+}
+
+@media (min-width:768px) {
+    .texto-newsletter {
+        grid-row: unset;
+        grid-column: 2/3;
+    }
+}
+
+.formulario input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+}
+
+.formulario input[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    background-color: var(--primario);
+    color: var(--blanco);
+}
+
+/*Footer*/
+.texto-footer{
+    color: var(--primario);
+    font-family: var(--fuenteSecundaria);
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 10rem 0 ;
+}
+@media (min-width:768px){
+    .texto-footer{
+        padding-bottom: 0;
+    }
+}
